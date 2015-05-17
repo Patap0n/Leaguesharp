@@ -298,7 +298,7 @@ namespace Cassiopeia
         {
             if (!menu.Item("interruptR").GetValue<bool>()) return;
 
-            if (sender.IsValidTarget(R.Range) && args.DangerLevel >= Interrupter2.DangerLevel.VeryHigh && menu.Item(sender.ChampionName + "interrupt").GetValue<bool>() && sender.IsFacing(player))
+            if (sender.IsValidTarget(R.Range) && args.DangerLevel >= Interrupter2.DangerLevel.High && menu.Item(sender.ChampionName + "interrupt").GetValue<bool>() && sender.IsFacing(player))
                 R.CastIfHitchanceEquals(sender, HitChance.VeryHigh, menu.Item("PacketCast").GetValue<bool>());
         }
 
