@@ -298,8 +298,8 @@ namespace Cassiopeia
         {
             if (!menu.Item("interruptR").GetValue<bool>()) return;
 
-            if (sender.IsValidTarget(R.Range) && args.DangerLevel >= Interrupter2.DangerLevel.High && menu.Item(sender.ChampionName + "interrupt").GetValue<bool>() && sender.IsFacing(player))
-                R.CastIfHitchanceEquals(sender, HitChance.High, menu.Item("PacketCast").GetValue<bool>());
+            if (sender.IsValidTarget(R.Range) && args.DangerLevel >= Interrupter2.DangerLevel.VeryHigh && menu.Item(sender.ChampionName + "interrupt").GetValue<bool>() && sender.IsFacing(player))
+                R.CastIfHitchanceEquals(sender, HitChance.VeryHigh, menu.Item("PacketCast").GetValue<bool>());
         }
 
         static void Orbwalking_BeforeAttack(Orbwalking.BeforeAttackEventArgs args)
@@ -567,7 +567,7 @@ namespace Cassiopeia
             {
                 if (Q.IsReady() && (!harass || menu.Item("qHarass").GetValue<bool>()))
                 {
-                    if (Q.CastIfHitchanceEquals(enemy, HitChance.High, packetCast))
+                    if (Q.CastIfHitchanceEquals(enemy, HitChance.VeryHigh, packetCast))
                     {
                         castWafter = Game.Time + Q.Delay;
                         return;
@@ -576,7 +576,7 @@ namespace Cassiopeia
 
                 if (!Q.IsReady() && castWafter < Game.Time && W.IsReady() && (!enemy.HasBuffOfType(BuffType.Poison) || !menu.Item("castWPoisoned").GetValue<bool>()) && (!harass || menu.Item("wHarass").GetValue<bool>()))
                 {
-                    W.CastIfHitchanceEquals(enemy, HitChance.High, packetCast);
+                    W.CastIfHitchanceEquals(enemy, HitChance.VeryHigh, packetCast);
                     return;
                 }
             }
